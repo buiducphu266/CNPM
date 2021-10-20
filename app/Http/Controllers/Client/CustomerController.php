@@ -28,12 +28,12 @@ class CustomerController extends Controller
     public function login(Request $request)
     {
         $this->validate($request, [
-            'email' => 'required|email:filter',
-            'password' => 'required'
+            'username' => 'required|min:8',
+            'password' => 'required|min:6'
         ]);
 
         if (Auth::guard('member')->attempt([
-            'email' => $request->input('email'),
+            'username' => $request->input('username'),
             'password' => $request->input('password')
         ], $request->input('remember'))) {
 
