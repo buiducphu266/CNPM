@@ -28,7 +28,7 @@ class RegisterCusRequest extends FormRequest
         return [
             'name' => 'required|max:100',
             'username' => 'required|unique:members|max:50',
-            'password' => 'required|confirmed|min:8',
+            'password' => 'required|confirmed|min:6',
             'phone' => 'required',
             'address' => 'required',
             'email' => 'required|email:filter'

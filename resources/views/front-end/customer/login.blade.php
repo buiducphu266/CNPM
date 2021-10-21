@@ -51,6 +51,11 @@
 
             <p class="mb-0">
                 <a href="/register" class="text-center">Register a new membership</a>
+
+            </p>
+            <p class="mb-0">
+                <a href="/" class="text-center">Back to home</a>
+
             </p>
         </div>
         <!-- /.login-card-body -->

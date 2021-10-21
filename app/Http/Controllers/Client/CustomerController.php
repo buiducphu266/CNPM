@@ -52,6 +52,11 @@ class CustomerController extends Controller
     }
 
     public function store(RegisterCusRequest $request){
-        return redirect()->back();
+        if($this->customerService->store($request)){
+            return redirect('/login');
+
+        }else {
+            return redirect()->back();
+        }
     }
 }

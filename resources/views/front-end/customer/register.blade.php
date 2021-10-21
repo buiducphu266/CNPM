@@ -88,7 +88,14 @@
                 </div>
             </form>
 
-            <a href="/login" class="text-center">I already have a membership</a>
+            <p class="mb-0">
+                <a href="/login" class="text-center">I already have a membership</a>
+
+            </p>
+            <p class="mb-0">
+                <a href="/" class="text-center">Back to home</a>
+
+            </p>
         </div>
         <!-- /.form-box -->
     </div><!-- /.card -->
