@@ -94,20 +94,21 @@ Route::post('/services/load-product', [\App\Http\Controllers\Client\MainControll
 Route::get('/danh-muc/{id}-{slug}.html',[CategoryController::class,'index']);
 
 Route::get('/san-pham/{id}-{slug}.html',[\App\Http\Controllers\Client\ProductController::class,'index']);
+    # Cart
 
 Route::post('/addCart', [\App\Http\Controllers\Client\CartController::class, 'store']);
-
 Route::get('/carts' , [\App\Http\Controllers\Client\CartController::class,'show']);
 Route::post('/update-cart' , [\App\Http\Controllers\Client\CartController::class,'update']);
-
 Route::get('/carts/delete/{id}' , [\App\Http\Controllers\Client\CartController::class,'destroy']);
-
 Route::post('/carts' , [\App\Http\Controllers\Client\CartController::class,'addCart']);
 
-    // CUSTOMER
+    # CUSTOMER
 Route::get('/login',[\App\Http\Controllers\Client\CustomerController::class,'index']);
 Route::post('/login/store',[\App\Http\Controllers\Client\CustomerController::class,'login']);
-
+Route::get('/logout',[\App\Http\Controllers\Client\CustomerController::class,'logout']);
 Route::get('/register',[\App\Http\Controllers\Client\CustomerController::class,'register']);
 Route::post('/register/store',[\App\Http\Controllers\Client\CustomerController::class,'store']);
+Route::get('/My_Account',[\App\Http\Controllers\Client\CustomerController::class,'show_acc']);
+
+
 

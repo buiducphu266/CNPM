@@ -110,39 +110,11 @@
                                     </span>
                             </div>
                         </div>
-                        <div class="flex-w flex-t bor12 p-t-15 p-b-30">
-
-
-                            <div class="size-124 p-r-18 p-r-0-sm w-full-ssm">
-
-                                <div class="p-t-15">
-
-
-                                    <div class="bor8 bg0 m-b-12">
-                                        <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="name" placeholder="Tên khách hàng *" required>
-                                    </div>
-                                    <div class="bor8 bg0 m-b-12">
-                                        <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="phone" placeholder="Số điện thoại *" required>
-                                    </div>
-                                    <div class="bor8 bg0 m-b-12">
-                                        <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="address" placeholder="Địa chỉ giao hàng *" required>
-                                    </div>
-                                    <div class="bor8 bg0 m-b-12">
-                                        <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="email" placeholder="Email *" required>
-                                    </div>
-                                    <div class="bor8 bg0 m-b-12">
-                                        <textarea class="stext-111 cl8 plh3 size-111 p-lr-15"  type="content" name="note" placeholder="Ghi chú đơn hàng"></textarea>
-                                    </div>
-
-
-
-
-                                </div>
-                            </div>
-                        </div>
-                        <button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-                            Proceed to Checkout
-                        </button>
+                        @if(auth()->guard('member')->check() == 0)
+                            <input type="submit" formaction="/non-login" value="Proceed to Checkout" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+                        @else
+                            <input type="submit" formaction="/logged" value="Proceed to Checkout" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+                        @endif
                     </div>
                 </div>
             </div>

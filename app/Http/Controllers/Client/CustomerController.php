@@ -44,6 +44,11 @@ class CustomerController extends Controller
         return redirect()->back();
     }
 
+    public function logout(){
+        Auth::guard('member')->logout();
+        return redirect()->back();
+    }
+
     public function register(){
 
         return view('front-end.customer.register',[
@@ -58,5 +63,12 @@ class CustomerController extends Controller
         }else {
             return redirect()->back();
         }
+    }
+
+    public function show_acc(){
+        return view('front-end.customer.view_acc',[
+            'title' => 'My Account',
+            'customer' => $this->customerService->getCus()
+        ]);
     }
 }

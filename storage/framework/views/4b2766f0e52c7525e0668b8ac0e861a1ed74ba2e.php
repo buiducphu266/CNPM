@@ -87,7 +87,7 @@
                     <!-- /.col -->
                 </div>
             </form>
-            
+
             <p class="mb-0">
                 <a href="/login" class="text-center">I already have a membership</a>
 

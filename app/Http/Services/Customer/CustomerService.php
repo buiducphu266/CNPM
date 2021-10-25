@@ -50,4 +50,10 @@ class CustomerService
         }
     }
 
+    public function getCus(){
+        $member_id = \auth()->guard('member')->id();
+
+        return Customer::where('id_member',$member_id)->get();
+    }
+
 }
