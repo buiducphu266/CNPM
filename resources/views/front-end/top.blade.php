@@ -18,7 +18,7 @@
                     LOGIN
                 </a>
                 @else
-                    <a href="/My_Account" class="flex-c-m trans-04 p-lr-25">
+                    <a href="/my-account" class="flex-c-m trans-04 p-lr-25">
                         My Account
                     </a>
                     <a href="/logout" class="flex-c-m trans-04 p-lr-25">

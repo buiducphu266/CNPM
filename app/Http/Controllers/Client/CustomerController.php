@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Customer\AccCusRequest;
+use App\Http\Requests\Customer\ChangePassRequest;
 use App\Http\Requests\Customer\RegisterCusRequest;
 use App\Http\Services\Customer\CustomerService;
+use App\Models\Member;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -70,5 +73,21 @@ class CustomerController extends Controller
             'title' => 'My Account',
             'customer' => $this->customerService->getCus()
         ]);
+    }
+
+    public function update_acc(AccCusRequest $request){
+        $this->customerService->update_acc($request);
+        return redirect()->back();
+    }
+
+    public function change_password(){
+        return view('front-end.customer.change_pass',[
+            'title' => 'Change Password'
+        ]);
+    }
+
+    public function update_change(Request $request,Member $member){
+        $this->customerService->change_pass($request,$member);
+        return redirect()->back();
     }
 }

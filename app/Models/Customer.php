@@ -17,5 +17,9 @@ class Customer extends Model
         'email'
     ];
 
+    public function member(){
+        return $this->hasOne(Member::class,'id','id_member');
+    }
+
 
 }

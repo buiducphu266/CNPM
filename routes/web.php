@@ -108,7 +108,10 @@ Route::post('/login/store',[\App\Http\Controllers\Client\CustomerController::cla
 Route::get('/logout',[\App\Http\Controllers\Client\CustomerController::class,'logout']);
 Route::get('/register',[\App\Http\Controllers\Client\CustomerController::class,'register']);
 Route::post('/register/store',[\App\Http\Controllers\Client\CustomerController::class,'store']);
-Route::get('/My_Account',[\App\Http\Controllers\Client\CustomerController::class,'show_acc']);
+Route::get('/my-account',[\App\Http\Controllers\Client\CustomerController::class,'show_acc']);
+Route::post('/my-account',[\App\Http\Controllers\Client\CustomerController::class,'update_acc']);
+Route::get('change-password/{member}',[\App\Http\Controllers\Client\CustomerController::class,'change_password']);
+Route::post('change-password/{member}',[\App\Http\Controllers\Client\CustomerController::class,'update_change']);
 
 
 
