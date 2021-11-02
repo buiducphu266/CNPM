@@ -28,22 +28,22 @@
     </nav>
     <table class="table">
         <thead>
-        <tr>
-            <th style="width: 50px">ID</th>
-            <th>Tên khách hàng</th>
-            <th>Ghi chú đơn hàng</th>
-            <th>Tổng tiền</th>
-            <th>Trạng thái</th>
-            <th>Ngày đặt hàng</th>
+            <tr>
+                <th style="width: 50px">ID</th>
+                <th>Tên khách hàng</th>
+                <th>Ghi chú đơn hàng</th>
+                <th>Tổng tiền</th>
+                <th>Trạng thái</th>
+                <th>Ngày đặt hàng</th>
 
-            <th style="width: 100px">&nbsp;</th>
-        </tr>
+                <th style="width: 100px">&nbsp;</th>
+            </tr>
         </thead>
         <tbody id="list">
         <?php $__currentLoopData = $orders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $order): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <tr>
                 <td><?php echo e($order -> id); ?></td>
-                <td><?php echo e($order -> customer ->name); ?></td>
+                <td><?php echo e((App\Helpers\Helper::getNameCus($order -> member ->id))->name); ?></td>
                 <td><?php echo e($order -> note); ?></td>
 
                 <td><?php echo e(number_format($order -> total_price)); ?></td>

@@ -15,7 +15,6 @@ class ProductController extends Controller
     }
 
     public function index($id = '',$slug = ''){
-
         $product_detail = $this->productService->show($id);
         return view('front-end.product.product_detail',[
             'title' => $product_detail->name,

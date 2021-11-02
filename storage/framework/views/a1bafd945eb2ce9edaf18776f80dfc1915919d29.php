@@ -92,7 +92,7 @@
                             <?php echo e($product_detail->name); ?>
 
                         </h4>
-
+                        <?php echo $__env->make('admin.alert', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                         <span class="mtext-106 cl2">
 							<?php echo \App\Helpers\Helper::price($product_detail); ?>
 
@@ -113,21 +113,26 @@
                                         <input type="hidden" name="product_id" value="<?php echo e($product_detail->id); ?>">
 
                                         <?php if($product_detail->price != 0 && $product_detail -> qty != 0): ?>
-                                        <div class="wrap-num-product flex-w m-r-20 m-tb-10">
-                                            <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-                                                <i class="fs-16 zmdi zmdi-minus"></i>
+                                            <div class="wrap-num-product flex-w m-r-20 m-tb-10">
+                                                <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+                                                    <i class="fs-16 zmdi zmdi-minus"></i>
+                                                </div>
+
+                                                <input class="mtext-104 cl3 txt-center num-product" type="number" name="num_product" value="1">
+
+                                                <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+                                                    <i class="fs-16 zmdi zmdi-plus"></i>
+                                                </div>
                                             </div>
+                                            <span class="stext-109 cl4">
+                                                Số lượng: <?php echo e($product_detail->qty); ?>
 
-                                            <input class="mtext-104 cl3 txt-center num-product" type="number" name="num_product" value="1">
+                                            </span>
+                                            <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+                                                Add to cart
+                                            </button>
 
-                                            <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-                                                <i class="fs-16 zmdi zmdi-plus"></i>
-                                            </div>
-                                        </div>
 
-                                        <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-                                            Add to cart
-                                        </button>
                                         <?php endif; ?>
                                     </form>
                                 </div>

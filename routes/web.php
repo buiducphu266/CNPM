@@ -100,7 +100,8 @@ Route::post('/addCart', [\App\Http\Controllers\Client\CartController::class, 'st
 Route::get('/carts' , [\App\Http\Controllers\Client\CartController::class,'show']);
 Route::post('/update-cart' , [\App\Http\Controllers\Client\CartController::class,'update']);
 Route::get('/carts/delete/{id}' , [\App\Http\Controllers\Client\CartController::class,'destroy']);
-Route::post('/carts' , [\App\Http\Controllers\Client\CartController::class,'addCart']);
+Route::post('/non-login' , [\App\Http\Controllers\Client\CartController::class,'login']);
+Route::post('/logged' , [\App\Http\Controllers\Client\CartController::class,'addCart']);
 
     # CUSTOMER
 Route::get('/login',[\App\Http\Controllers\Client\CustomerController::class,'index']);

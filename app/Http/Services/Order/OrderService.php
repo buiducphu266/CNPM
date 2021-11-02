@@ -10,8 +10,10 @@ use Illuminate\Support\Facades\Session;
 class OrderService
 {
     public function getOrder(){
-        return Cart::orderByDesc('id')->with('customer')->paginate(20);
+        return Cart::orderByDesc('id')->with('member')->paginate(20);
     }
+
+
 
     public function destroy($request){
         try {
@@ -33,7 +35,7 @@ class OrderService
     }
 
     public function getCartById($id){
-        return Cart::where('id',$id)->with('customer')->firstOrFail();
+        return Cart::where('id',$id)->with('member')->firstOrFail();
     }
 
     public function getCart_details($id){

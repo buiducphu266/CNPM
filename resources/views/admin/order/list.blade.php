@@ -30,22 +30,22 @@
     </nav>
     <table class="table">
         <thead>
-        <tr>
-            <th style="width: 50px">ID</th>
-            <th>Tên khách hàng</th>
-            <th>Ghi chú đơn hàng</th>
-            <th>Tổng tiền</th>
-            <th>Trạng thái</th>
-            <th>Ngày đặt hàng</th>
+            <tr>
+                <th style="width: 50px">ID</th>
+                <th>Tên khách hàng</th>
+                <th>Ghi chú đơn hàng</th>
+                <th>Tổng tiền</th>
+                <th>Trạng thái</th>
+                <th>Ngày đặt hàng</th>
 
-            <th style="width: 100px">&nbsp;</th>
-        </tr>
+                <th style="width: 100px">&nbsp;</th>
+            </tr>
         </thead>
         <tbody id="list">
         @foreach($orders as $order)
             <tr>
                 <td>{{ $order -> id }}</td>
-                <td>{{ $order -> customer ->name }}</td>
+                <td>{{ (App\Helpers\Helper::getNameCus($order -> member ->id))->name }}</td>
                 <td>{{ $order -> note }}</td>
 
                 <td>{{ number_format($order -> total_price) }}</td>

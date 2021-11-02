@@ -21,5 +21,4 @@ class Customer extends Model
         return $this->hasOne(Member::class,'id','id_member');
     }
 
-
 }

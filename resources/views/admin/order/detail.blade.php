@@ -2,10 +2,10 @@
 
 @section('content')
 <div>
-    <p>Họ và tên: {{ $cart -> customer -> name }}</p>
-    <p>Số điện thoại: {{ $cart -> customer -> phone }}</p>
-    <p>Địa chỉ: {{ $cart -> customer -> address }}</p>
-    <p>Email: {{ $cart -> customer -> email }}</p>
+    <p>Họ và tên: {{ (App\Helpers\Helper::getNameCus($cart -> member ->id)) -> name }}</p>
+    <p>Số điện thoại: {{ (App\Helpers\Helper::getNameCus($cart -> member ->id)) -> phone }}</p>
+    <p>Địa chỉ: {{ (App\Helpers\Helper::getNameCus($cart -> member ->id)) -> address }}</p>
+    <p>Email: {{ (App\Helpers\Helper::getNameCus($cart -> member ->id)) -> email }}</p>
     <p>Note: {{ $cart -> note }}</p>
 
 </div>

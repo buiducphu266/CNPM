@@ -10,15 +10,15 @@ class Cart extends Model
     use HasFactory;
 
     protected $fillable = [
-        'customer_id',
+        'member_id',
         'total_price',
         'note',
         'status'
 
     ];
 
-    public function customer(){
-        return $this->hasOne(Customer::class,'id','customer_id');
+    public function member(){
+        return $this->hasOne(Member::class,'id','member_id');
     }
 
     public function cart_details(){

@@ -1,9 +1,9 @@
 <?php $__env->startSection('content'); ?>
 <div>
-    <p>Họ và tên: <?php echo e($cart -> customer -> name); ?></p>
-    <p>Số điện thoại: <?php echo e($cart -> customer -> phone); ?></p>
-    <p>Địa chỉ: <?php echo e($cart -> customer -> address); ?></p>
-    <p>Email: <?php echo e($cart -> customer -> email); ?></p>
+    <p>Họ và tên: <?php echo e((App\Helpers\Helper::getNameCus($cart -> member ->id)) -> name); ?></p>
+    <p>Số điện thoại: <?php echo e((App\Helpers\Helper::getNameCus($cart -> member ->id)) -> phone); ?></p>
+    <p>Địa chỉ: <?php echo e((App\Helpers\Helper::getNameCus($cart -> member ->id)) -> address); ?></p>
+    <p>Email: <?php echo e((App\Helpers\Helper::getNameCus($cart -> member ->id)) -> email); ?></p>
     <p>Note: <?php echo e($cart -> note); ?></p>
 
 </div>

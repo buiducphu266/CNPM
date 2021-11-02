@@ -33,6 +33,7 @@ class CartController extends Controller
         return view('front-end.cart.list',[
             'title' => 'Danh sách giỏ hàng',
             'products' => $products,
+            'customer' => $this->cartService->getCus(),
             'carts' => Session::get('carts')
         ]);
     }
@@ -50,10 +51,13 @@ class CartController extends Controller
         }
     }
 
+    public function login(Request $request){
+        return redirect('/login');
+    }
+
     public function addCart(Request $request){
-        if($this->cartService->addCart($request)){
-            return redirect('/carts');
-        }
+        $this->cartService->addCart($request);
+        return redirect()->back();
     }
 
 }

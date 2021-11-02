@@ -108,9 +108,85 @@
                                     </span>
                             </div>
                         </div>
-                        <?php if(auth()->guard('member')->check() == 0): ?>
-                            <input type="submit" formaction="/non-login" value="Proceed to Checkout" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+
+
+
+
+
+
+
+
+
+                    <?php if(auth()->guard('member')->check() == 0): ?>
+                            <input type="submit" formaction="/non-login" value="Login to pay" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
                         <?php else: ?>
+                            <div class="flex-w flex-t p-t-27 p-b-33">
+                                <div class="size-208">
+                                    <span class="mtext-101 cl2">
+                                        Name:
+                                    </span>
+                                </div>
+
+                                <div class="size-209 p-t-1">
+                                    <span class="mtext-110 cl2">
+                                        <?php echo e($customer->name); ?>
+
+                                    </span>
+                                </div>
+
+                                <div class="size-208">
+                                    <span class="mtext-101 cl2">
+                                        Phone:
+                                    </span>
+                                </div>
+
+                                <div class="size-209 p-t-1">
+                                    <span class="mtext-110 cl2">
+                                        <?php echo e($customer->phone); ?>
+
+                                    </span>
+                                </div>
+
+                                <div class="size-208">
+                                    <span class="mtext-101 cl2">
+                                        Address:
+                                    </span>
+                                </div>
+
+                                <div class="size-209 p-t-1">
+                                    <span class="mtext-110 cl2">
+                                        <?php echo e($customer->address); ?>
+
+                                    </span>
+                                </div>
+
+                                <div class="size-208">
+                                    <span class="mtext-101 cl2">
+                                        Email:
+                                    </span>
+                                </div>
+
+                                <div class="size-209 p-t-1">
+                                    <span class="mtext-110 cl2">
+                                        <?php echo e($customer->email); ?>
+
+                                    </span>
+                                </div>
+
+                                <div class="size-208">
+                                    <span class="mtext-101 cl2">
+                                        Note:
+                                    </span>
+                                </div>
+
+                                <div class="size-209 p-t-1">
+                                    <div class="bor8 bg0 m-b-12">
+                                        <textarea class="cl8 plh3 size-110 p-lr-15" name="note"></textarea>
+                                    </div>
+                                </div>
+
+
+                            </div>
                             <input type="submit" formaction="/logged" value="Proceed to Checkout" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
                         <?php endif; ?>
                     </div>
