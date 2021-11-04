@@ -39,7 +39,7 @@
                         <i class="zmdi zmdi-search"></i>
                     </button>
 
-                    <input class="mtext-107 cl2 size-114 plh2 p-r-15" id="search_product" type="text" name="search_product" placeholder="Search">
+                    <input class="mtext-107 cl2 size-114 plh2 p-r-15" id="search_product" type="text" placeholder="Search">
                 </div>
             </div>
 
@@ -81,22 +81,29 @@
 
                         <ul>
                             <li class="p-b-6">
-                                <a href="#" class="filter-link stext-106 trans-04 filter-link-active">
+                                <a href="<?php echo e(request()->url()); ?>" class="filter-link stext-106 trans-04 filter-link-active">
                                     All
                                 </a>
                             </li>
 
                             <li class="p-b-6">
-                                <a href="#" class="filter-link stext-106 trans-04">
-                                    $0.00 - $50.00
+                                <a href="<?php echo e(request()->fullUrlWithQuery(['fill' => '1'])); ?>" class="filter-link stext-106 trans-04">
+                                    < 1.000.000 VNĐ
                                 </a>
                             </li>
 
                             <li class="p-b-6">
-                                <a href="#" class="filter-link stext-106 trans-04">
-                                    $50.00 - $100.00
+                                <a href="<?php echo e(request()->fullUrlWithQuery(['fill' => '2'])); ?>" class="filter-link stext-106 trans-04">
+                                     1.000.000 - 2.500.000 VNĐ
                                 </a>
                             </li>
+
+                            <li class="p-b-6">
+                                <a href="<?php echo e(request()->fullUrlWithQuery(['fill' => '3'])); ?>" class="filter-link stext-106 trans-04">
+                                    > 2.500.000 VNĐ
+                                </a>
+                            </li>
+
 
 
                         </ul>
@@ -106,13 +113,37 @@
                 </div>
             </div>
         </div>
+        <div id="list_cate">
+            <?php echo $__env->make('front-end.product.product', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        </div>
 
-        <?php echo $__env->make('front-end.product.product', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
         <?php echo $products->links(); ?>
 
     </div>
 </section>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('footer_client'); ?>
+    <script>
+        $(document).ready(function (){
+            $(document).on('keyup','#search_product', function (){
+                var keyword = $(this).val();
+
+                $.ajax({
+                    type: "get",
+                    url: "<?php echo e(request()->url()); ?>/search",
+                    data: {
+                        keyword: keyword
+                    },
+                    datatype: "json",
+                    success: function (results){
+                        $('#list_cate').html(results.html);
+                    }
+                })
+            })
+        })
+    </script>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('front-end.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\shoplaravel\resources\views/front-end/product/product_category.blade.php ENDPATH**/ ?>

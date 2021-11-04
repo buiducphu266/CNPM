@@ -86,13 +86,26 @@ class MenuService
 
     public function getProduct($request, $menu)
     {
-
         $jquery = $menu->products()->where('active', 1);
 
         if ($request->price) {
             $jquery->orderBy('price', $request->price);
         }
+
+        if ($request->fill == 1){
+            $jquery->where('price','<',1000000);
+        }
+
+        if ($request->fill == 2){
+            $jquery->where('price','>=', 1000000)->where('price' ,'<=' , 2500000);
+        }
+
+        if ($request->fill == 3){
+            $jquery->where('price','>', 2500000);
+        }
+
         return $jquery->orderByDesc('id')->paginate(12)->withQueryString();
+
     }
 
     public function search($request)

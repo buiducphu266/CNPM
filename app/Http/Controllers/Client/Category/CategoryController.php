@@ -4,13 +4,15 @@ namespace App\Http\Controllers\Client\Category;
 
 use App\Http\Controllers\Controller;
 use App\Http\Services\Menu\MenuService;
+use App\Http\Services\Product\ProductService;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    protected $menuService;
-    public function __construct(MenuService $menuService){
+    protected $menuService,$productService;
+    public function __construct(MenuService $menuService, ProductService $productService){
         $this->menuService = $menuService;
+        $this->productService = $productService;
     }
 
     public function index(Request $request, $id , $slug){
@@ -24,16 +26,12 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function search(Request $request){
-//        $menu = $this->menuService->getId($request->input('menu_id'));
-//        $products = $this->menuService->search($request);
-//
-//        return view('front-end.product.product_category',[
-//            'title' => $menu->name,
-//            'menu' => $menu,
-//            'products' => $products
-//        ]);
-        dd($request->input());
+    public function search(Request $request, $id){
+        $result = $this->productService->search($request,$id);
+        return response()->json([
+            'error' => false,
+            'html' => $result
+        ]);
     }
 
 }

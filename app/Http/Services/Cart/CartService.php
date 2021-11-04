@@ -98,8 +98,12 @@ class CartService
 
             $productId = array_keys($carts);
 
-
             $products = Product::where('active',1)->whereIn('id',$productId)->get();
+
+            foreach ($products as $product){
+                $product -> qty = $product->qty - $carts[$product->id];
+                $product -> save();
+            }
 
             foreach ($products as $product){
                 Cart_detail::create([
@@ -107,7 +111,6 @@ class CartService
                     'product_id' => $product->id,
                     'qty' => $carts[$product->id],
                     'price' => $product->price_sale != 0 ? $product->price_sale : $product->price
-
                 ]) ;
             }
 

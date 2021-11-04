@@ -406,4 +406,5 @@
 <!--===============================================================================================-->
 <script src="/template/front-end/js/main.js"></script>
 <script src="/template/front-end/js/public.js"></script>
+<?php echo $__env->yieldContent('footer_client'); ?>
 <?php /**PATH C:\xampp\htdocs\shoplaravel\resources\views/front-end/footer.blade.php ENDPATH**/ ?>

@@ -24,19 +24,3 @@ function loadMore()
     })
 }
 
-$(document).on('keyup','#search_product', function (){
-    var keyword = $('#search_product').val();
-    var menu_id = $('#menu_id').val();
-
-    $.ajax({
-        type : 'GET',
-        data : {
-            keyword: keyword.value,
-            menu_id: menu_id.value,
-        },
-        url : '/search-product',
-        success : function (result) {
-            console.log(result);
-        }
-    })
-})

@@ -33,7 +33,7 @@
         <nav class="limiter-menu-desktop container">
 
             <!-- Logo desktop -->
-            <a href="#" class="logo">
+            <a href="/" class="logo">
                 <img src="/template/front-end/images/icons/logo-01.png" alt="IMG-LOGO">
             </a>
 
@@ -49,11 +49,11 @@
 
 
                     <li>
-                        <a href="about.html">About</a>
+                        <a href="/about.html">About</a>
                     </li>
 
                     <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="/contact.html">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -137,8 +137,34 @@
             <button class="flex-c-m trans-04">
                 <i class="zmdi zmdi-search"></i>
             </button>
-            <input class="plh3" type="text" name="search" placeholder="Search...">
+            <input class="plh3" type="text" id="search_all" placeholder="Search...">
+            <div id="search_all1" style="position: relative">
+
+            </div>
         </form>
     </div>
 </div>
+
+<?php $__env->startSection('footer_client'); ?>
+    <script>
+        $(document).ready(function (){
+            $(document).on('keyup','#search_all', function (){
+                var keyword = $(this).val();
+
+                $.ajax({
+                    type: "get",
+                    url: "/search",
+                    data: {
+                        keyword: keyword
+                    },
+                    datatype: "json",
+                    success: function (results){
+                        $('#search_all1').html(results.html);
+                    }
+                })
+            })
+        })
+    </script>
+<?php $__env->stopSection(); ?>
+
 <?php /**PATH C:\xampp\htdocs\shoplaravel\resources\views/front-end/top.blade.php ENDPATH**/ ?>

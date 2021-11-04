@@ -406,3 +406,4 @@
 <!--===============================================================================================-->
 <script src="/template/front-end/js/main.js"></script>
 <script src="/template/front-end/js/public.js"></script>
+@yield('footer_client')

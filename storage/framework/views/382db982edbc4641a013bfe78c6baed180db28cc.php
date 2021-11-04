@@ -33,7 +33,7 @@
                             </div>
 
                             <div class="header-cart-item-txt p-t-8">
-                                <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+                                <a href="/san-pham/<?php echo e($product->id); ?>-<?php echo e(Str::slug($product->name, '-')); ?>.html" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
                                     <?php echo e($product->name); ?>
 
                                 </a>

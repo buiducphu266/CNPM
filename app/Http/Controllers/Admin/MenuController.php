@@ -78,7 +78,5 @@ class MenuController extends Controller
             'error' => false,
             'html' => $result
         ]);
-
-
     }
 }

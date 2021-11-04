@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Http\Services\Main\MainService;
 use App\Http\Services\Menu\MenuService;
 use App\Http\Services\Product\ProductService;
 use App\Http\Services\Slider\SliderService;
@@ -11,12 +12,13 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
-    protected $sliderService,$menuService,$productService;
-    public function __construct(SliderService $sliderService, MenuService $menuService, ProductService $productService)
+    protected $sliderService,$menuService,$productService,$mainService;
+    public function __construct(MainService $mainService,SliderService $sliderService, MenuService $menuService, ProductService $productService)
     {
         $this->sliderService = $sliderService;
         $this->menuService = $menuService;
         $this->productService = $productService;
+        $this->mainService = $mainService;
     }
 
     public function index(){
@@ -39,5 +41,27 @@ class MainController extends Controller
         }
 
         return response()->json(['html' => '' ]);
+    }
+
+    public function contact(){
+        return view('front-end.contact',[
+           'title' => 'Contact',
+            'contact' => $this->mainService->contact()
+        ]);
+    }
+
+    public function about(){
+        return view('front-end.about',[
+            'title' => 'About',
+            'abouts' => $this->mainService->about()
+        ]);
+    }
+
+    public function search(Request $request){
+        $result = $this->productService->search_all($request);
+        return response()->json([
+            'error' => false,
+            'html' => $result
+        ]);
     }
 }

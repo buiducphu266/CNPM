@@ -90,9 +90,13 @@ Route::middleware(['auth'])->group(function () {
 // FRONT-END
 Route::get('/',[\App\Http\Controllers\Client\MainController::class,'index'])->name('home');
 Route::post('/services/load-product', [\App\Http\Controllers\Client\MainController::class, 'loadProduct']);
+Route::get('/contact.html', [\App\Http\Controllers\Client\MainController::class, 'contact']);
+Route::get('/about.html', [\App\Http\Controllers\Client\MainController::class, 'about']);
+
+Route::get('/search', [\App\Http\Controllers\Client\MainController::class, 'search']);
 
 Route::get('/danh-muc/{id}-{slug}.html',[CategoryController::class,'index']);
-
+Route::get('/danh-muc/{id}-{slug}.html/search',[CategoryController::class,'search']);
 Route::get('/san-pham/{id}-{slug}.html',[\App\Http\Controllers\Client\ProductController::class,'index']);
     # Cart
 
@@ -111,8 +115,8 @@ Route::get('/register',[\App\Http\Controllers\Client\CustomerController::class,'
 Route::post('/register/store',[\App\Http\Controllers\Client\CustomerController::class,'store']);
 Route::get('/my-account',[\App\Http\Controllers\Client\CustomerController::class,'show_acc']);
 Route::post('/my-account',[\App\Http\Controllers\Client\CustomerController::class,'update_acc']);
-Route::get('change-password/{member}',[\App\Http\Controllers\Client\CustomerController::class,'change_password']);
-Route::post('change-password/{member}',[\App\Http\Controllers\Client\CustomerController::class,'update_change']);
+Route::get('/change-password/{member}',[\App\Http\Controllers\Client\CustomerController::class,'change_password']);
+Route::post('/change-password/{member}',[\App\Http\Controllers\Client\CustomerController::class,'update_change']);
 
 
 
