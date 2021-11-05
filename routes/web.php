@@ -72,6 +72,23 @@ Route::middleware(['auth'])->group(function () {
             Route::get('search', [OrderController::class, 'search']);
         });
 
+        #contact
+        Route::prefix('contact')->group(function () {
+            Route::get('/', [\App\Http\Controllers\Admin\ContactController::class, 'index']);
+            Route::get('edit/{contact}', [\App\Http\Controllers\Admin\ContactController::class, 'show']);
+            Route::post('edit/{contact}', [\App\Http\Controllers\Admin\ContactController::class, 'update']);
+        });
+
+        #about
+        Route::prefix('abouts')->group(function () {
+            Route::get('add', [\App\Http\Controllers\Admin\AboutController::class, 'create']);
+            Route::post('add', [\App\Http\Controllers\Admin\AboutController::class, 'store']);
+            Route::get('list', [\App\Http\Controllers\Admin\AboutController::class, 'index']);
+            Route::get('edit/{about}', [\App\Http\Controllers\Admin\AboutController::class, 'show']);
+            Route::post('edit/{about}', [\App\Http\Controllers\Admin\AboutController::class, 'update']);
+            Route::DELETE('destroy', [\App\Http\Controllers\Admin\AboutController::class, 'destroy']);
+        });
+
         #slider
         Route::prefix('users')->group(function () {
             Route::get('add', [UserController::class, 'create']);

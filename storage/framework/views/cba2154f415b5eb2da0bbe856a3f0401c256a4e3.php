@@ -150,6 +150,47 @@
                     </ul>
                 </li>
                 <?php endif; ?>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-sliders-h"></i>
+                        <p> Liên hệ
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/admin/contact" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Xem liện hệ</p>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-sliders-h"></i>
+                        <p> About
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/admin/abouts/add" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thêm About</p>
+                            </a>
+                            <a href="/admin/abouts/list" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh sách About</p>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

@@ -12,7 +12,8 @@ class About extends Model
     protected $fillable = [
         'topic',
         'content',
-        'thumb'
+        'thumb',
+        'active'
     ];
 
 }

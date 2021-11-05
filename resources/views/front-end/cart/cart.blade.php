@@ -19,7 +19,8 @@
         <div class="header-cart-content flex-w js-pscroll">
             <ul class="header-cart-wrapitem w-full">
 
-                @if(count($products)>0 && is_null(\Illuminate\Support\Facades\Session::get('carts')) == false)
+                @if(is_null(\Illuminate\Support\Facades\Session::get('carts')) == false)
+                    @if(count($products)!=0)
                     @foreach($products as $product)
                         @php
 
@@ -43,6 +44,7 @@
                             </div>
                         </li>
                     @endforeach
+                    @endif
                 @endif
 
             </ul>
@@ -57,9 +59,6 @@
                         View Cart
                     </a>
 
-                    <a href="/carts" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-                        Check Out
-                    </a>
                 </div>
             </div>
         </div>

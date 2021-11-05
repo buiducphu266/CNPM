@@ -19,7 +19,8 @@
         <div class="header-cart-content flex-w js-pscroll">
             <ul class="header-cart-wrapitem w-full">
 
-                <?php if(count($products)>0 && is_null(\Illuminate\Support\Facades\Session::get('carts')) == false): ?>
+                <?php if(is_null(\Illuminate\Support\Facades\Session::get('carts')) == false): ?>
+                    <?php if(count($products)!=0): ?>
                     <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <?php
 
@@ -45,6 +46,7 @@
                             </div>
                         </li>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <?php endif; ?>
                 <?php endif; ?>
 
             </ul>
@@ -60,9 +62,6 @@
                         View Cart
                     </a>
 
-                    <a href="/carts" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-                        Check Out
-                    </a>
                 </div>
             </div>
         </div>
