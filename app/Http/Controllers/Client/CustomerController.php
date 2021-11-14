@@ -86,7 +86,7 @@ class CustomerController extends Controller
         ]);
     }
 
-    public function update_change(Request $request,Member $member){
+    public function update_change(ChangePassRequest $request,Member $member){
         $this->customerService->change_pass($request,$member);
         return redirect()->back();
     }

@@ -89,7 +89,7 @@ class Helper
 
         if((int)$product->price != 0 && (int)$product->price_sale != 0 && (int)$product->qty > 0) return '<p style="color: red"><del style="color: black;">' . number_format($product->price) .'VNĐ</del>'. number_format($product->price_sale) .'VNĐ</p>';
         if((int)$product->price != 0 && (int)$product->priceSale == 0 && (int)$product->qty > 0) return '<p style="color: red">'. number_format($product->price) .'VNĐ</p>';
-        if((int)$product->qty == 0) return '<p style="color: red;">HẾT HÀNG</p>';
+        if((int)$product->qty == 0) return '<p style="color: red;"><del style="color: black;">' . number_format($product->price) .'VNĐ</del> HẾT HÀNG</p>';
     }
 
     public static function getNameCus($id){

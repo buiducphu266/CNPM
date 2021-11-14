@@ -13,6 +13,7 @@ class AboutService
     public function insert($request){
 
         try {
+
             $request->except(['_token']);
             About::create($request->all());
 
