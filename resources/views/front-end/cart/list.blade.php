@@ -31,8 +31,8 @@
                                 $total = 0;
                                 @endphp
                                 <tbody><tr class="table_head">
-                                    <th class="column-1">Product</th>
-                                    <th class="column-2"></th>
+                                    <th class="column-1">Image</th>
+                                    <th class="column-2">Product</th>
                                     <th class="column-3">Price</th>
                                     <th class="column-4">Quantity</th>
                                     <th class="column-5">Total</th>

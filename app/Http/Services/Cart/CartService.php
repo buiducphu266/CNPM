@@ -34,13 +34,19 @@ class CartService
 
             return true;
         }
-
+        $pro =Product::where('id',$product_id)->first();
         $exists = Arr::exists($carts, $product_id);
         if ($exists){
-            $carts[$product_id] = $carts[$product_id] + $qty;
-            Session::put('carts',$carts);
+            if($carts[$product_id] + $qty <= $pro->qty) {
+                $carts[$product_id] = $carts[$product_id] + $qty;
+                Session::put('carts', $carts);
 
-            return true;
+                return true;
+            }
+            else{
+                Session::flash('error','Số lượng quá lớn');
+                return false;
+            }
         }
 
         $carts[$product_id] = $qty;
@@ -69,6 +75,18 @@ class CartService
     }
 
     public function updateCart($request){
+        $carts = Session::get('carts');
+        $productId = array_keys($carts);
+
+        $products = Product::where('active',1)->whereIn('id',$productId)->get();
+
+        foreach ($products as $product){
+            if($product->qty < $request->num_product[$product->id]){
+                Session::flash('error','Số lượng quá lớn');
+                return false;
+            }
+        }
+
         Session::put('carts', $request->input('num_product'));
         return true;
     }

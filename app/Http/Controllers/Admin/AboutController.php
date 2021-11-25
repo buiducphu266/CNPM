@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Services\About\AboutService;
 use App\Models\About;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -36,6 +37,7 @@ class AboutController extends Controller
             'title' => 'Danh Sách About',
             'abouts' => $this->aboutService->getAll()
         ]);
+
     }
 
     public function show(About $about){

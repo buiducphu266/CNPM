@@ -29,8 +29,8 @@
                             <div class="wrap-slick3-dots">
                                 <ul class="slick3-dots" role="tablist" style="">
                                     <li class="slick-active" role="presentation">
-                                        <img src=" {{$product_detail->thumb}} ">
-                                        <div class="slick3-dot-overlay"></div>
+
+
                                     </li>
                                 </ul>
                             </div>

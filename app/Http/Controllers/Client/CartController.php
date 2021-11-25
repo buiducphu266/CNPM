@@ -42,6 +42,9 @@ class CartController extends Controller
         if($this->cartService->updateCart($request)){
             return redirect('/carts');
         }
+        else{
+            return redirect()->back();
+        }
 
     }
 
