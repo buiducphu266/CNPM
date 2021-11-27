@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 25, 2021 lúc 04:50 PM
+-- Thời gian đã tạo: Th10 27, 2021 lúc 04:26 PM
 -- Phiên bản máy phục vụ: 10.4.18-MariaDB
 -- Phiên bản PHP: 8.0.3
 
@@ -205,7 +205,7 @@ CREATE TABLE `members` (
 --
 
 INSERT INTO `members` (`id`, `username`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(3, 'admin@gmail.com', NULL, '$2y$10$pnjRTBokYKWr5DqxsiA0X./RJEOAFqRIPfOheVyuLQQcYiH4r4wXW', 'blSUbZNWT5YCGIC7vcX2b7CRaBmdW7iCjuCukeikuY5R8YKAFXjyLKJX59dj', '2021-10-21 08:05:00', '2021-11-13 19:40:11'),
+(3, 'admin@gmail.com', NULL, '$2y$10$pnjRTBokYKWr5DqxsiA0X./RJEOAFqRIPfOheVyuLQQcYiH4r4wXW', 'WRUrLPnSqVgUAYNzKnMQjoItu6atDqYwk8zVLbdC4l4Kjy76RTAiucAX47EH', '2021-10-21 08:05:00', '2021-11-13 19:40:11'),
 (4, 'Buiducphu.266@gmail.com', NULL, '$2y$10$wb65KMqW3Pz04SWB3uWwauTzahZ.uoDsfUCkTbP3nukIjqcyaA.8W', '1Us8qf5TgfkGegWSGWce5foyeQUYcaOr8i4nnTKnFttnWp2ALkEOLAElIfoR', '2021-10-27 03:07:24', '2021-10-27 03:07:24');
 
 -- --------------------------------------------------------
