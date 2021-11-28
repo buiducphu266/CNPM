@@ -10,7 +10,7 @@
             <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
         </div>
         <div class="card-body">
-            <p class="login-box-msg">Register a new membership</p>
+            <p class="login-box-msg">Information</p>
             @include('admin.alert')
             <form action="" method="post">
                 @foreach($customer as $cus)
