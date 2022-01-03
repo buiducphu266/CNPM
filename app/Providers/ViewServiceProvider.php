@@ -22,6 +22,7 @@ class ViewServiceProvider extends ServiceProvider
     {
 
         View::composer('front-end.top', MenuComposer::class);
+        View::composer('front-end.footer', MenuComposer::class);
 
         View::composer('front-end.cart.cart', CartComposer::class);
     }
